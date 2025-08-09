@@ -67,3 +67,33 @@ footer { background: var(--surface); color: var(--muted); }
 .text-muted { color: var(--muted) !important; }
 .rounded-2xl { border-radius: var(--radius); }
 :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+.project-hero-img {
+  max-height: 500px;          /* force smaller height */
+  width: auto !important;     /* prevent Bootstrap from forcing 100% width */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+/* ===== Dark Accordion ===== */
+.accordion-button {
+  background-color: #1e1e1e !important;
+  color: #fff !important;
+}
+
+.accordion-body {
+  background-color: #2a2a2a !important;
+  color: #fff !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #333 !important;
+  color: #fff !important;
+}
+
+.accordion-button:focus {
+  box-shadow: none !important;
+}
+
