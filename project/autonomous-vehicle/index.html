@@ -1,85 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Autonomous Robot — Braidyn Sheffield</title>
-  <meta name="description" content="Multi-sensor autonomous robot built from scratch."/>
-  <meta name="theme-color" content="#0d1117"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Autonomous Robot — Braidyn Sheffield</title>
+    <meta name="description" content="Multi-sensor autonomous robot built from scratch."/>
+    <meta name="theme-color" content="#0d1117"/>
 
-  <!-- Icons -->
-  <link rel="icon" href="../../assets/icons/favicon.ico"/>
-  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png"/>
-  <link rel="manifest" href="../../assets/icons/site.webmanifest"/>
+    <!-- Icons -->
+    <link rel="icon" href="../../assets/icons/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png"/>
+    <link rel="manifest" href="../../assets/icons/site.webmanifest"/>
 
-  <!-- Fonts & CSS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../../assets/css/main.css" rel="stylesheet">
+    <!-- Fonts & CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/css/main.css" rel="stylesheet">
 </head>
+
 <body>
 <header class="header navbar navbar-expand-lg sticky-top">
-  <div class="container">
+    <div class="container">
     <a class="navbar-brand fw-semibold" href="../../index.html">Braidyn Sheffield</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
     </button>
     <nav id="nav" class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="../../index.html#hero">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="../../projects.html">Projects</a></li>
         <li class="nav-item"><a class="nav-link" href="../../about.html">About</a></li>
         <li class="nav-item"><a class="nav-link" href="../../contact.html">Contact</a></li>
-      </ul>
+        </ul>
     </nav>
-  </div>
+    </div>
 </header>
 
-<main class="py-5">
-  <div class="container">
-    <nav class="small mb-3">
-      <a href="../../projects.html" class="text-decoration-none">← Back to Projects</a>
-    </nav>
 
-    <h1 class="h3">Autonomous Robot</h1>
-    <p class="text-muted">Multi-sensor autonomous robot built from scratch.</p>
+    <main class="py-5">
+    <div class="container">
+        <nav class="small mb-3">
+        <a href="../../projects.html" class="text-decoration-none">← Back to Projects</a>
+        </nav>
 
-    <!-- Hero image -->
-    <img class="img-fluid rounded-2xl mb-4" src="../../assets/img/projects/autonomous-vehicle-hero.jpg" alt="Autonomous Robot hero">
+        <h1 class="h3">Autonomous Robot</h1>
+        <p class="text-muted">Multi-sensor autonomous robot built from scratch.</p>
 
-    <h2 class="h6 mt-4">Overview</h2>
-    <p class="text-muted">
-      This robot navigates autonomously using multiple sensors and a state-machine controller.
-      I designed and built the hardware, integrated the sensors, and wrote the firmware to handle navigation,
-      obstacle detection, and decision-making in real time.
-    </p>
+        <!-- Hero image -->
+        <img class="img-fluid rounded-2xl mb-4" src="img/autonomous-vehicle-hero.jpeg" alt="Autonomous Robot hero">
 
-    <h2 class="h6 mt-4">Highlights</h2>
-    <ul class="text-muted">
-      <li>Modular sensor stack (e.g., ultrasonic, color sensing, IMU) with debounced, fused readings.</li>
-      <li>State-machine architecture for predictable navigation and behavior transitions.</li>
-      <li>Stable power distribution for motors/servos and logic rails; clean signal routing.</li>
-    </ul>
+        <div class="accordion" id="projectAccordion">
 
-    <h2 class="h6 mt-4">Tech</h2>
-    <ul class="text-muted">
-      <li>MCU: Arduino/Teensy (C/C++)</li>
-      <li>Sensors: ultrasonic rangefinders, color sensors, MPU-6050 IMU</li>
-      <li>Actuation: DC motors + motor driver, servos</li>
-      <li>Firmware: non-blocking loops, timers, and sensor fusion basics</li>
-    </ul>
+        <!-- Overview -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOverview">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOverview" aria-expanded="true" aria-controls="collapseOverview">
+                Overview
+            </button>
+            </h2>
+            <div id="collapseOverview" class="accordion-collapse collapse show" data-bs-parent="#projectAccordion">
+            <div class="accordion-body">
+                <p>
+                The Autonomous Robot was developed to navigate a multi-challenge obstacle course using real-time sensor input and state-driven control logic. It combines ultrasonic distance sensors, TCS230 color sensors, a gyroscope, and servo/DC motors to perform tasks such as line following, object avoidance, and directional turning.
+                </p>
+                <p>
+                Built around the Teensy 4.1 microcontroller and programmed in Arduino C++, the system features modular code for motor control, sensor integration, and navigation states. Custom CAD parts were 3D printed, and a tailored power distribution system was designed using buck converters. This project demonstrates full-stack embedded integration—from mechanical and electrical design to firmware architecture and testing.
+                </p>
+            </div>
+            </div>
+        </div>
 
-    <!-- Gallery (optional) -->
-    <div class="row g-3 mt-2">
-      <!-- Drop in extra photos as you have them -->
-      <!-- <div class="col-12 col-md-6"><img class="img-fluid rounded-2xl" src="../../assets/img/projects/autonomous-vehicle-1.jpg" alt="Detail view"></div> -->
-      <!-- <div class="col-12 col-md-6"><img class="img-fluid rounded-2xl" src="../../assets/img/projects/autonomous-vehicle-2.jpg" alt="In action"></div> -->
+        <!-- CAD Models / Engineering Drawings -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingCAD">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCAD" aria-expanded="false" aria-controls="collapseCAD">
+                CAD Models / Engineering Drawings
+            </button>
+            </h2>
+            <div id="collapseCAD" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+            <div class="accordion-body">
+                <p>Custom chassis, sensor mounts, and servo brackets designed in Autodesk Inventor and fabricated via 3D printing.</p>
+
+                <div class="row">
+                <div class="col-md-4 mb-3">
+                    <img src="img/autonomous-vehicle-8.jpg" class="img-fluid rounded-2xl shadow-sm" alt="Full Assembly">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="img/autonomous-vehicle-9.jpg" class="img-fluid rounded-2xl shadow-sm" alt="Front Sensor Mount">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="img/autonomous-vehicle-10.jpg" class="img-fluid rounded-2xl shadow-sm" alt="Vehicle Shelve">
+                </div>
+                </div>
+
+                <p class="mt-3">
+                <a class="btn btn-outline-primary" href="files/Autonomous_Robot_CAD_Files.zip" download>Download All CAD Files</a>
+                </p>
+            </div>
+            </div>
+        </div>
+
+        <!-- Schematics -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSchematics">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSchematics" aria-expanded="false" aria-controls="collapseSchematics">
+                Schematics
+            </button>
+            </h2>
+            <div id="collapseSchematics" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+            <div class="accordion-body">
+                <p>Electrical architecture including power regulation, sensor connections, MCU I/O, and motor driver interfacing.</p>
+
+                <div class="text-center mb-3">
+                <img src="img/autonomous-vehicle-11.jpg" class="img-fluid rounded-2xl shadow-sm" alt="Schematic Diagram">
+                </div>
+
+                <a class="btn btn-outline-primary" href="files/Schematic V3.0.pdf" target="_blank" rel="noopener">View Full Schematic (PDF)</a>
+            </div>
+            </div>
+        </div>
+
+        <!-- State Diagram / Flowchart -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingStateDiagram">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStateDiagram" aria-expanded="false" aria-controls="collapseStateDiagram">
+                State Diagram / Flowchart
+            </button>
+            </h2>
+            <div id="collapseStateDiagram" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+            <div class="accordion-body">
+                <p>State-machine framework manages navigation, obstacle avoidance, color recognition, and recovery behaviors.</p>
+
+                <div class="text-center mb-3">
+                <img src="img/autonomous-vehicle-12.jpg" class="img-fluid rounded-2xl shadow-sm" alt="State Diagram">
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Code Section -->
+    <div class="accordion-item">
+    <h2 class="accordion-header" id="headingCode">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCode">
+        Code
+        </button>
+    </h2>
+    <div id="collapseCode" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+        <div class="accordion-body">
+        <p>View or download individual files:</p>
+        <ul>
+            <li><a href="files/Main_V3_0.ino" target="_blank" rel="noopener">Main_V3_0.ino</a></li>
+            <li><a href="files/ColorControl.cpp" target="_blank" rel="noopener">ColorControl.cpp</a></li>
+            <li><a href="files/ColorControl.h" target="_blank" rel="noopener">ColorControl.h</a></li>
+            <li><a href="files/GyroControl.cpp" target="_blank" rel="noopener">GyroControl.cpp</a></li>
+            <li><a href="files/GyroControl.h" target="_blank" rel="noopener">GyroControl.h</a></li>
+            <li><a href="files/MotorControl.cpp" target="_blank" rel="noopener">MotorControl.cpp</a></li>
+            <li><a href="files/MotorControl.h" target="_blank" rel="noopener">MotorControl.h</a></li>
+            <li><a href="files/ServoControl.cpp" target="_blank" rel="noopener">ServoControl.cpp</a></li>
+            <li><a href="files/ServoControl.h" target="_blank" rel="noopener">ServoControl.h</a></li>
+            <li><a href="files/UltrasonicControl.cpp" target="_blank" rel="noopener">UltrasonicControl.cpp</a></li>
+            <li><a href="files/UltrasonicControl.h" target="_blank" rel="noopener">UltrasonicControl.h</a></li>
+        </ul>
+        </div>
+    </div>
     </div>
 
-    <!-- Links (optional) -->
-    <!-- <p class="mt-4"><a href="https://github.com/yourusername/your-repo" target="_blank" rel="noopener">Source code</a></p> -->
+
+      <!-- Photos -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingPhotos">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePhotos" aria-expanded="false" aria-controls="collapsePhotos">
+            Photos
+          </button>
+        </h2>
+        <div id="collapsePhotos" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+          <div class="accordion-body row g-3">
+
+            <div class="col-12 col-md-6 col-lg-4">
+              <figure class="text-center">
+                <img src="../../assets/projects/autonomous_vehicle/img/Robot_Stow_Mode.jpeg" class="img-fluid rounded-2xl shadow-sm" alt="Robot Stow Mode">
+                <figcaption class="small text-muted mt-2">Robot in Stow Mode</figcaption>
+              </figure>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+              <figure class="text-center">
+                <img src="../../assets/projects/autonomous_vehicle/img/Robot_1.jpeg" class="img-fluid rounded-2xl shadow-sm" alt="Robot Front View">
+                <figcaption class="small text-muted mt-2">Side View of Robot</figcaption>
+              </figure>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+              <figure class="text-center">
+                <img src="../../assets/projects/autonomous_vehicle/img/Robot_Picking_Up_Box2.jpeg" class="img-fluid rounded-2xl shadow-sm" alt="Picking Up Box">
+                <figcaption class="small text-muted mt-2">Robot Holding Box</figcaption>
+              </figure>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+              <figure class="text-center">
+                <img src="../../assets/projects/autonomous_vehicle/img/Robot_Picking_Up_Box3.jpeg" class="img-fluid rounded-2xl shadow-sm" alt="Box Pickup Close">
+                <figcaption class="small text-muted mt-2">Box Pickup (Side View)</figcaption>
+              </figure>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+              <figure class="text-center">
+                <img src="../../assets/projects/autonomous_vehicle/img/Robot_Picking_Up_Box1.jpeg" class="img-fluid rounded-2xl shadow-sm" alt="Robot Grabbing Box">
+                <figcaption class="small text-muted mt-2">Grabbing Box (Top View)</figcaption>
+              </figure>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+              <figure class="text-center">
+                <img src="../../assets/projects/autonomous_vehicle/img/Obstacle_Avoidance.jpeg" class="img-fluid rounded-2xl shadow-sm" alt="Obstacle Avoidance">
+                <figcaption class="small text-muted mt-2">Obstacle Avoidance Demonstration</figcaption>
+              </figure>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+              <figure class="text-center">
+                <img src="../../assets/projects/autonomous_vehicle/img/Gripper_Open.jpeg" class="img-fluid rounded-2xl shadow-sm" alt="Gripper Open">
+                <figcaption class="small text-muted mt-2">Gripper Mechanism (Open)</figcaption>
+              </figure>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+              <figure class="text-center">
+                <img src="../../assets/projects/autonomous_vehicle/img/Gripper_Closed.jpeg" class="img-fluid rounded-2xl shadow-sm" alt="Gripper Closed">
+                <figcaption class="small text-muted mt-2">Gripper Mechanism (Closed)</figcaption>
+              </figure>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+              <figure class="text-center">
+                <img src="../../assets/projects/autonomous_vehicle/img/Controls.jpeg" class="img-fluid rounded-2xl shadow-sm" alt="Controls">
+                <figcaption class="small text-muted mt-2">Robot Control Panel</figcaption>
+              </figure>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+              <figure class="text-center">
+                <img src="../../assets/projects/autonomous_vehicle/img/CTRL_ALT_ELITE.jpeg" class="img-fluid rounded-2xl shadow-sm" alt="Team Name Plate">
+                <figcaption class="small text-muted mt-2">Team Name Plate: CTRL+ALT+ELITE</figcaption>
+              </figure>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+              <figure class="text-center">
+                <img src="../../assets/projects/autonomous_vehicle/img/Lower_Color_Sensor_Mount.jpeg" class="img-fluid rounded-2xl shadow-sm" alt="Color Sensor Mount">
+                <figcaption class="small text-muted mt-2">Lower Color Sensor Mount</figcaption>
+              </figure>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+              <figure class="text-center">
+                <img src="../../assets/projects/autonomous_vehicle/img/Back_Plate.jpeg" class="img-fluid rounded-2xl shadow-sm" alt="Back Plate">
+                <figcaption class="small text-muted mt-2">Custom Back Plate Design</figcaption>
+              </figure>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+              <figure class="text-center">
+                <img src="../../assets/projects/autonomous_vehicle/img/Gripper_Spacer2.jpeg" class="img-fluid rounded-2xl shadow-sm" alt="Gripper Spacer 2">
+                <figcaption class="small text-muted mt-2">Gripper Spacer (Right)</figcaption>
+              </figure>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+              <figure class="text-center">
+                <img src='../../assets/projects/autonomous_vehicle/img/Gripper Spacer.jpeg' class="img-fluid rounded-2xl shadow-sm" alt="Gripper Spacer 1">
+                <figcaption class="small text-muted mt-2">Gripper Spacer (Front)</figcaption>
+              </figure>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Videos -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingVideos">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVideos" aria-expanded="false" aria-controls="collapseVideos">
+            Videos
+          </button>
+        </h2>
+        <div id="collapseVideos" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+          <div class="accordion-body row g-4">
+            <div class="col-12 col-md-6">
+              <div class="ratio ratio-1x1 rounded-2xl overflow-hidden">
+                <iframe src="https://www.youtube.com/embed/IGUdqhyNTII" title="Obstacle Avoidance Demo 1" allowfullscreen></iframe>
+              </div>
+              <p class="text-center small text-muted mt-2">Obstacle Avoidance Demo 1</p>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="ratio ratio-1x1 rounded-2xl overflow-hidden">
+                <iframe src="https://www.youtube.com/embed/PO-7jDJpSDc" title="Obstacle Avoidance Demo 2" allowfullscreen></iframe>
+              </div>
+              <p class="text-center small text-muted mt-2">Obstacle Avoidance Demo 2</p>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="ratio ratio-1x1 rounded-2xl overflow-hidden">
+                <iframe src="https://www.youtube.com/embed/kaAV2r06xVk" title="Pick Up and Placement Demo 1" allowfullscreen></iframe>
+              </div>
+              <p class="text-center small text-muted mt-2">Pick Up and Placement Demo 1</p>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="ratio ratio-1x1 rounded-2xl overflow-hidden">
+                <iframe src="https://www.youtube.com/embed/iQSxlP076zI" title="Pick Up and Placement Demo 2" allowfullscreen></iframe>
+              </div>
+              <p class="text-center small text-muted mt-2">Pick Up and Placement Demo 2</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Final Report / Documentation -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingReport">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReport" aria-expanded="false" aria-controls="collapseReport">
+            Final Report / Documentation
+          </button>
+        </h2>
+        <div id="collapseReport" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+          <div class="accordion-body">
+            <p class="mb-3">Preview the final report below or download it.</p>
+            <iframe src="../../assets/projects/autonomous_vehicle/files/Final-Report.pdf"
+                    width="100%" height="800" class="rounded-2xl"
+                    style="border:1px solid var(--border);"></iframe>
+            <div class="mt-3">
+              <a href="../../assets/projects/autonomous_vehicle/files/Final-Report.pdf" class="btn btn-primary" download>
+                Download Final Report (PDF)
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools & Technologies -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTools">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTools" aria-expanded="false" aria-controls="collapseTools">
+            Tools and Technologies Used
+          </button>
+        </h2>
+        <div id="collapseTools" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+          <div class="accordion-body">
+            <ul class="text-muted">
+              <li><strong>Microcontroller:</strong> Teensy 4.1</li>
+              <li><strong>Programming:</strong> Arduino C++ (Arduino IDE)</li>
+              <li><strong>CAD:</strong> Autodesk Inventor</li>
+              <li><strong>PCB/Schematics:</strong> KiCad</li>
+              <li><strong>3D Printing:</strong> Ender 3, Prusa i3 MK3</li>
+              <li><strong>Sensors:</strong> TCS230, HC-SR04, MPU-6050</li>
+              <li><strong>Motor Control:</strong> XY-1600 H-Bridge</li>
+              <li><strong>Power:</strong> Buck converters (12V → 7.2V & 5V)</li>
+              <li><strong>Version Control:</strong> GitHub</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /accordion -->
   </div>
 </main>
 
