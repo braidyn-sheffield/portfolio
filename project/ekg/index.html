@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>EKG Project — Braidyn Sheffield</title>
+    <meta name="description" content="Analog EKG circuit capturing heart signals using differential electrodes, instrumentation amplification, and filtering."/>
+    <meta name="theme-color" content="#0d1117"/>
+
+    <!-- Icons -->
+    <link rel="icon" href="../../assets/icons/logo.png"/>
+    <link rel="apple-touch-icon" href="../../assets/icons/logo.png"/>
+    <link rel="manifest" href="../../assets/icons/site.webmanifest"/>
+
+    <!-- Fonts & CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/css/main.css" rel="stylesheet">
+</head>
+<body>
+<header class="header navbar navbar-expand-lg sticky-top">
+    <div class="container">
+    <a class="navbar-brand fw-semibold d-flex align-items-center" href="../../index.html">
+    <img src="../../assets/icons/logo.png" alt="Logo" height="64" class="me-2">
+    Braidyn Sheffield
+</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <nav id="nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="../../index.html#hero">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="../../projects.html">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="../../about.html">About</a></li>
+        </ul>
+    </nav>
+    </div>
+</header>
+
+<main class="py-5">
+    <div class="container">
+    <nav class="small mb-3">
+        <a href="../../projects.html" class="text-decoration-none">← Back to Projects</a>
+    </nav>
+
+    <h1 class="h3">EKG Project</h1>
+    <p class="text-muted">Analog EKG front-end with instrumentation amplifier and filtering to acquire and visualize cardiac signals.</p>
+
+    <!-- Hero image (use a clean photo of your final build or scope capture) -->
+    <img class="img-fluid rounded-2xl mb-4 project-hero-img" src="img/ekg-hero.jpg" alt="EKG project hero">
+
+    <div class="accordion" id="projectAccordion">
+
+        <!-- Overview -->
+        <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOverview">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOverview" aria-expanded="true">
+            Overview
+            </button>
+        </h2>
+        <div id="collapseOverview" class="accordion-collapse collapse show" data-bs-parent="#projectAccordion">
+            <div class="accordion-body">
+            <p>
+                Built an analog EKG acquisition chain to capture heart activity from differential electrodes. The design uses an instrumentation amplifier (INA) followed by filtering stages to reject mains noise and muscular activity, producing a clean signal for display and heart-rate estimation.
+            </p>
+            <p>
+                The project included research and comparison of multiple candidate topologies, simulation and verification of each stage, and a final lab build. Emphasis was placed on safety, noise reduction, and stable biasing.
+            </p>
+            </div>
+        </div>
+        </div>
+
+        <!-- Block Diagram & Reference Schematic -->
+        <div class="accordion-item">
+        <h2 class="accordion-header" id="headingDesign">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDesign">
+            Block Diagram & Reference Schematic
+            </button>
+        </h2>
+        <div id="collapseDesign" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+            <div class="accordion-body">
+            <div class="row g-3">
+                <div class="col-12 col-lg-6">
+                <h3 class="h6">System Block Diagram</h3>
+                <img class="img-fluid rounded-2xl shadow-sm mb-2" src="img/ekg-block-diagram.png" alt="EKG block diagram">
+                <p class="small text-muted mb-0">High-level flow: electrodes → INA → filters → buffer/output.</p>
+                </div>
+                <div class="col-12 col-lg-6">
+                <h3 class="h6">Reference Schematic</h3>
+                <img class="img-fluid rounded-2xl shadow-sm mb-2" src="img/ekg-reference-schematic.png" alt="Reference schematic">
+                <p class="small text-muted mb-0">Chosen topology with INA + notch (60 Hz) + low-pass chain.</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Simulations -->
+        <div class="accordion-item">
+        <h2 class="accordion-header" id="headingSims">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSims">
+            Simulations
+            </button>
+        </h2>
+        <div id="collapseSims" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+            <div class="accordion-body">
+            <p>Simulated the INA and filters to validate gain and frequency response before building.</p>
+            <div class="row g-3">
+                <div class="col-12 col-md-6">
+                <img class="img-fluid rounded-2xl shadow-sm" src="img/ekg-ina-sim.jpg" alt="INA simulation">
+                <p class="small text-muted mt-2 mb-0">INA gain verified with differential input (e.g., 15 mV vs 7 mV).</p>
+                </div>
+                <div class="col-12 col-md-6">
+                <img class="img-fluid rounded-2xl shadow-sm" src="img/ekg-filters-60hz.jpg" alt="Filter rejection at 60 Hz">
+                <p class="small text-muted mt-2 mb-0">Notch filter strongly attenuates 60 Hz interference.</p>
+                </div>
+                <div class="col-12 col-md-6">
+                <img class="img-fluid rounded-2xl shadow-sm" src="img/ekg-filters-15hz.jpg" alt="Passband at 15 Hz">
+                <p class="small text-muted mt-2 mb-0">Low-frequency passband preserved (≈15 Hz).</p>
+                </div>
+                <div class="col-12 col-md-6">
+                <img class="img-fluid rounded-2xl shadow-sm" src="img/ekg-filters-100hz.jpg" alt="Cutoff near 100 Hz">
+                <p class="small text-muted mt-2 mb-0">Low-pass cutoff around 100 Hz (≈−3 dB).</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Build -->
+        <div class="accordion-item">
+        <h2 class="accordion-header" id="headingBuild">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBuild">
+            Build
+            </button>
+        </h2>
+        <div id="collapseBuild" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+            <div class="accordion-body">
+            <p>
+                The INA stage was prototyped and validated first, followed by filtering. In lab, a passive low-pass (~417 Hz with available parts) was used to simplify the chain while maintaining readability.
+            </p>
+            <div class="row g-3">
+                <div class="col-12 col-md-6">
+                <img class="img-fluid rounded-2xl shadow-sm" src="img/ekg-ina-scope.jpg" alt="INA scope reading">
+                <p class="small text-muted mt-2 mb-0">Oscilloscope output of the INA matches simulation within component tolerances.</p>
+                </div>
+                <div class="col-12 col-md-6">
+                <img class="img-fluid rounded-2xl shadow-sm" src="img/ekg-final-build.jpg" alt="Completed circuit">
+                <p class="small text-muted mt-2 mb-0">Completed build with electrode placement (RA/LA/ground).</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Results -->
+        <div class="accordion-item">
+        <h2 class="accordion-header" id="headingResults">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseResults">
+            Results
+            </button>
+        </h2>
+        <div id="collapseResults" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+            <div class="accordion-body">
+            <p>
+                Clean EKG waveforms were captured; motion artifacts (muscle contraction noise) appeared during movement and hand clenching, demonstrating the importance of stillness during acquisition.
+            </p>
+            <div class="row g-3">
+                <div class="col-12 col-md-6">
+                <img class="img-fluid rounded-2xl shadow-sm" src="img/ekg-clean.jpg" alt="Clean EKG waveform">
+                <p class="small text-muted mt-2 mb-0">Filtered output shows clear QRS complexes.</p>
+                </div>
+                <div class="col-12 col-md-6">
+                <img class="img-fluid rounded-2xl shadow-sm" src="img/ekg-motion-noise.jpg" alt="Motion noise">
+                <p class="small text-muted mt-2 mb-0">Motion/EMG noise introduced by hand movement.</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Downloads -->
+        <div class="accordion-item">
+        <h2 class="accordion-header" id="headingDownloads">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDownloads">
+            Downloads
+            </button>
+        </h2>
+        <div id="collapseDownloads" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+            <div class="accordion-body">
+            <!-- Embedded report preview (replace filename to match yours) -->
+            <iframe src="files/ekg-report.pdf" width="100%" height="650" class="rounded-2xl mb-3" style="border:1px solid var(--border);"></iframe>
+            <div class="d-flex flex-wrap gap-2">
+                <a class="btn btn-primary" href="../../assets/projects/ekg/files/ekg-report.pdf" target="_blank" rel="noopener">Open Report (PDF)</a>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Tools & Components -->
+        <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTools">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTools">
+            Tools & Components
+            </button>
+        </h2>
+        <div id="collapseTools" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+            <div class="accordion-body">
+            <ul class="text-muted mb-0">
+                <li>Instrumentation amplifier (e.g., AD620/INA128)</li>
+                <li>Active/notch filters, low-pass filtering</li>
+                <li>MCU/DAQ + oscilloscope</li>
+                <li>Electrodes & isolation considerations</li>
+            </ul>
+            </div>
+        </div>
+        </div>
+
+    </div><!-- /accordion -->
+    </div>
+</main>
+
+<footer class="py-4 mt-5 border-top">
+    <div class="container text-center text-muted small">
+    © <span id="year"></span> Braidyn Sheffield • Built with Bootstrap
+    </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

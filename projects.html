@@ -7,8 +7,8 @@
   <meta name="description" content="Portfolio of Braidyn Sheffield"/>
   <meta name="theme-color" content="#0d1117"/>
   <!-- Icons -->
-  <link rel="icon" href="assets/icons/favicon.ico"/>
-  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png"/>
+  <link rel="icon" href="assets/icons/logo.png"/>
+  <link rel="apple-touch-icon" href="assets/icons/logo.png"/>
   <link rel="manifest" href="assets/icons/site.webmanifest"/>
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,11 @@
 <body class="index-page">
 <header id="header" class="header navbar navbar-expand-lg sticky-top">
   <div class="container">
-    <a class="navbar-brand fw-semibold" href="index.html">Braidyn Sheffield</a>
+    <a class="navbar-brand fw-semibold d-flex align-items-center" href="../../index.html">
+    <img src="assets/icons/logo.png" alt="Logo" height="64" class="me-2">
+    Braidyn Sheffield
+</a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -32,7 +36,6 @@
         <li class="nav-item"><a class="nav-link" href="index.html#hero">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </div>
@@ -49,21 +52,8 @@
     </div>
 
     <div id="projectGrid" class="row g-4">
-      <!-- Copy this card and update content for each project -->
-      <div class="col-12 col-sm-6 col-lg-4 project-card" data-tags="robotics, embedded">
-        <a class="text-decoration-none" href="project/sample-project/">
-          <div class="card h-100 shadow-soft">
-            <img class="card-img-top" src="assets/img/projects/sample-thumb.jpg" alt="Sample project thumbnail">
-            <div class="card-body">
-              <h2 class="h6 mb-1 text-white">Sample Project</h2>
-              <p class="card-text text-muted small">Category: Robotics</p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <!-- Add more cards here -->
-
-              <!-- Autonomous Robot -->
+        
+      <!-- Autonomous Robot -->
         <div class="col-12 col-md-6 col-lg-4">
           <a class="text-decoration-none" href="project/autonomous-vehicle/">
             <div class="card h-100 shadow-soft">
