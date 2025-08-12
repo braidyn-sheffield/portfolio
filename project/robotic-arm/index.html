@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Robotic Arm — Braidyn Sheffield</title>
+    <meta name="description" content="3D-printed robotic arm controlled by Arduino and potentiometers, with CAD models, schematic, code, and final report."/>
+    <meta name="theme-color" content="#0d1117"/>
+
+    <!-- Icons -->
+    <link rel="icon" href="../../assets/icons/logo.png"/>
+    <link rel="apple-touch-icon" href="../../assets/icons/logo.png"/>
+    <link rel="manifest" href="../../assets/icons/site.webmanifest"/>
+
+    <!-- Fonts & CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/css/main.css" rel="stylesheet">
+</head>
+<body>
+<header class="header navbar navbar-expand-lg sticky-top">
+    <div class="container">
+    <a class="navbar-brand fw-semibold d-flex align-items-center" href="../../index.html">
+        <img src="../../assets/icons/logo.png" alt="Logo" height="64" class="me-2">
+        Braidyn Sheffield
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <nav id="nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="../../index.html#hero">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="../../projects.html">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="../../about.html">About</a></li>
+        </ul>
+    </nav>
+    </div>
+</header>
+
+<main class="py-5">
+    <div class="container">
+    <nav class="small mb-3">
+        <a href="../../projects.html" class="text-decoration-none">← Back to Projects</a>
+    </nav>
+
+    <h1 class="h3">Robotic Arm</h1>
+    <p class="text-muted">3D-printed robotic arm with multi-servo control. Includes CAD, schematic, Arduino code, and final report.</p>
+
+    <!-- Hero -->
+    <img class="img-fluid rounded-2xl mb-4 project-hero-img" src="img/robotic-arm-hero.jpg" alt="Robotic Arm">
+
+    <div class="accordion" id="projectAccordion">
+
+        <!-- Overview -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOverview">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOverview" aria-expanded="true">
+                Overview
+            </button>
+            </h2>
+            <div id="collapseOverview" class="accordion-collapse collapse show" data-bs-parent="#projectAccordion">
+            <div class="accordion-body">
+                <p>
+                Desktop robotic arm with 3D-printed links and mounts. Each joint uses hobby servos driven by an Arduino. Potentiometers provide manual inputs; code applies mapping, clamping, and smoothing for stable motion.
+                </p>
+                <ul class="text-muted mb-0">
+                <li>Joints: base, shoulder, elbow, wrist, gripper</li>
+                <li>Input: potentiometers → servo angles</li>
+                <li>Safety: end-stop limits and rate limiting</li>
+                </ul>
+            </div>
+            </div>
+        </div>
+
+    <!-- Mechanics & CAD -->
+    <div class="accordion-item">
+    <h2 class="accordion-header" id="headingCAD">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCAD">
+        Mechanics & CAD
+        </button>
+    </h2>
+    <div id="collapseCAD" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+        <div class="accordion-body">
+        <div class="row g-3">
+            <div class="col-12 col-md-4">
+            <img src="img/cad-box.jpg" class="img-fluid rounded-2xl shadow-sm mb-2" alt="CAD box">
+            <div class="d-grid">
+                <a class="btn btn-outline-primary" href="files/cad-box.zip" download>Download Box CAD (.zip)</a>
+            </div>
+            </div>
+            <div class="col-12 col-md-4">
+            <img src="img/cad-lid.jpg" class="img-fluid rounded-2xl shadow-sm mb-2" alt="CAD lid">
+            <div class="d-grid">
+                <a class="btn btn-outline-primary" href="files/cad-lid.zip" download>Download Lid CAD (.zip)</a>
+            </div>
+            </div>
+            <div class="col-12 col-md-4">
+            <img src="img/cad-segment.jpg" class="img-fluid rounded-2xl shadow-sm mb-2" alt="CAD segment">
+            <div class="d-grid">
+                <a class="btn btn-outline-primary" href="files/cad-segment.zip" download>Download Segment CAD (.zip)</a>
+            </div>
+            </div>
+        </div>
+
+        <!-- Assembly Photo -->
+        <div class="mt-4">
+            <h5 class="mb-2">Assembly</h5>
+            <img src="img/assembly.png" class="img-fluid rounded-2xl shadow-sm" alt="Robotic Arm Assembly">
+            <p class="mt-2 text-muted small">Figure: Fully assembled robotic arm showing all CAD components integrated.</p>
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+        <!-- Schematic -->
+        <div class="accordion-item">
+        <h2 class="accordion-header" id="headingSchematic">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSchematic">
+            Schematic
+            </button>
+        </h2>
+        <div id="collapseSchematic" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+            <div class="accordion-body">
+            <img src="img/schematic.jpg" class="img-fluid rounded-2xl shadow-sm mb-3" alt="Robotic Arm Schematic">
+            </div>
+        </div>
+        </div>
+
+        <!-- Code -->
+        <div class="accordion-item">
+        <h2 class="accordion-header" id="headingCode">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCode">
+            Code
+            </button>
+        </h2>
+        <div id="collapseCode" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+            <div class="accordion-body">
+            <ul>
+                <li><a href="files/robotic-arm.ino" download>Download Arduino Code (.ino)</a></li>
+                <li><a href="https://github.com/braidyn-sheffield/braidyn-sheffield.github.io/blob/main/project/robotic-arm/files/robotic-arm.ino" target="_blank" rel="noopener">View on GitHub</a></li>
+            </ul>
+<pre class="bg-dark text-light p-3 rounded-2xl"><code>// Mapping example
+int raw = analogRead(A0);
+int angle = map(raw, 0, 1023, 0, 180);
+angle = constrain(angle, minAngle, maxAngle);
+servo.write(angle);
+</code></pre>
+            </div>
+        </div>
+        </div>
+
+        <!-- Final Report -->
+        <div class="accordion-item">
+        <h2 class="accordion-header" id="headingReport">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReport">
+            Final Report
+            </button>
+        </h2>
+        <div id="collapseReport" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+            <div class="accordion-body">
+            <iframe src="files/robotic-arm-report.pdf" width="100%" height="650" class="rounded-2xl mb-3" style="border:1px solid var(--border);"></iframe>
+            <a class="btn btn-outline-primary" href="files/robotic-arm-report.pdf" target="_blank" rel="noopener">Open Report (PDF)</a>
+            </div>
+        </div>
+        </div>
+
+    </div><!-- /accordion -->
+    </div>
+</main>
+
+<footer class="py-4 mt-5 border-top">
+    <div class="container text-center text-muted small">
+    © <span id="year"></span> Braidyn Sheffield • Built with Bootstrap
+    </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
